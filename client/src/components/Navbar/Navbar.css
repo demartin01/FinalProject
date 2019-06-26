@@ -1,5 +1,7 @@
 .navbar {
-  background-color: indigo;
+  color: black;
+  background-color: whitesmoke;
   justify-content: space-between;
   font-family: cursive, sans-serif;
+  
 }

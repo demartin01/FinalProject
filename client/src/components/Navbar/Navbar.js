@@ -7,7 +7,7 @@ import Signup from "../Signup";
 const MainNavbar = () => (
 
   <Navbar variant="dark" className="fixed-top d-flex">
-    <Navbar.Brand href="/" className="flex-shrink-0">Home Away From Home</Navbar.Brand>
+    <Navbar.Brand href="/" className="flex-shrink-0">Should I Stay or Should I go?</Navbar.Brand>
       <Button variant="info" className="flex-shrink-0">Your Home/Condo</Button>
       <Button variant="info" className="flex-shrink-0">Get More Info</Button>
       <Login />
