@@ -1,4 +1,4 @@
-const db = require("../models");
+const db = require("../models/property");
 
 module.exports = {
     getAllProperties: (req, res) => {

@@ -1,6 +1,6 @@
 //server
 const express = require("express");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
 const mongoose = require("mongoose");
@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production"){
 
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb:// localhost:27017/homesdb", {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/homesdb", {useNewUrlParser: true});
 
 app.listen(PORT, () => console.log(`now listening on http://localhost:${PORT}`))
 
