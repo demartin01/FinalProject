@@ -1,0 +1,16 @@
+#searchDiv {
+    background-color: #004085;
+    margin-top: 150px;
+    width: 500px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 5px black;
+    color: white;
+}   
+.row {
+    justify-content: center;
+}
+#title {
+    text-align: center;
+}
