@@ -12,10 +12,11 @@ const MainNavbar = () => (
       <Button variant="info" className="flex-shrink-0">Get More Info</Button>
       <Login />
       <Signup />
-      <Form inline>
-        <FormControl type="text" placeholder="Search" className="mr-sm-2 flex-shrink-0" />
-        <Button variant="outline-info"  className="flex-shrink-0">Search</Button>
-      </Form>
+      {/* <Form inline> */}
+        {/* <FormControl type="text" placeholder="Search" className="mr-sm-2 flex-shrink-0" /> */}
+        
+        <a href="/search"><Button variant="outline-info"  className="flex-shrink-0">Search</Button></a>
+      {/* </Form> */}
   </Navbar>
 
 )

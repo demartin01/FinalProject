@@ -8,27 +8,12 @@ class Search extends Component {
     State: '',
     propertiesList: []
   };
-
-  searchZillowProperties = (city, state) => {
-    API.searchZillowProperties(city, state)
+  getZillowProperties = (city, state) => {
+    API.getZillowProperties(city, state)
       .then(res => {
-          console.log("Zillow API Call: ",res.data);
-          
-        // take res.data.items array and create new array with less information
-        const propertiesList = res.data.map(property => {
-          return {
-                property
-        //     propertyId: property.id,
-        //     authors: property.volumeInfo.authors,
-        //     title: property.volumeInfo.title,
-        //     date: property.volumeInfo.publishedDate,
-        //     description: property.volumeInfo.description,
-        //     image: property.volumeInfo.imageLinks ? property.volumeInfo.imageLinks.thumbnail : 'https://fillmurray.com/200/300',
-        //     link: property.volumeInfo.infoLink
-          };
-        });
-        // set state to have new property list
-        this.setState({ propertiesList });
+        this.setState({propertiesList: res.data}, function () {
+          console.log("Zillow API Call: ",this.state.data);
+          })
       })
       .catch(err => {
         console.log(err);
@@ -45,11 +30,10 @@ class Search extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (!this.state.searchTerm) {
+    if (!this.state.City && !this.state.State) {
       return false;
     }
-
-    this.searchZillowProperties(this.state.City, this.state.State);
+    this.getZillowProperties(this.state.City, this.state.State);
   };
 
   saveproperty = propertyId => {
@@ -66,6 +50,7 @@ class Search extends Component {
   };
 
   render() {
+    {var zillowData;}
     return (
       <React.Fragment>
         {/* make jumbotron */}
@@ -110,27 +95,34 @@ class Search extends Component {
                   <div className="row">
                     {this.state.propertiesList.map(property => {
                       return (
-                        <div className="col-12 col-md-6" key={property.propertyId}>
+                        <div className="col-12 col-md-6" key={property.id}>
                           <div className="card">
-                            <img src={property.image} alt={property.title} className="card-img-top" />
+                            {/* <img src={property.image} alt={property.title} className="card-img-top" /> */}
                             <div className="card-body">
-                              <h5 className="card-title">{property.title}</h5>
-                              <p className="card-text">Released: {property.date}</p>
-                              {property.authors ? <p className="card-text">By: {property.authors.join(', ')}</p> : ''}
-                              <p className="card-text">
+                              <h5 className="card-title">USD: ${property.value}</h5>
+                              {/* <p className="card-text">Released: {property.date}</p> */}
+                              {/* {property.authors ? <p className="card-text">By: {property.authors.join(', ')}</p> : ''} */}
+                              {/* <p className="card-text">
                                 <strong>Description</strong>: {property.description}{' '}
-                              </p>
+                              </p> */}
 
                               <a
-                                href={property.link}
+                                href={property.googleMap}
                                 rel="noopener noreferrer"
                                 target="_blank"
                                 className="btn btn-success btn-small">
-                                See More.
+                                Google Map
                               </a>
-                              <button onClick={() => this.saveproperty(property.propertyId)} className="btn btn-dark btn-small">
+                              <a
+                                href={property.zillowURL}
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                className="btn btn-success btn-small">
+                                Zillow Link
+                              </a>
+                              {/* <button onClick={() => this.saveproperty(property.id)} className="btn btn-dark btn-small">
                                 Save property.
-                              </button>
+                              </button> */}
                             </div>
                           </div>
                         </div>

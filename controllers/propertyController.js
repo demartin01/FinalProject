@@ -1,4 +1,4 @@
-const db = require("../models/property");
+const db = require("../models");
 
 module.exports = {
     getAllProperties: (req, res) => {
@@ -7,7 +7,6 @@ module.exports = {
             .find(req.body)
             .then(dbProperties => {
                 console.log("dbProperties: ", dbProperties);
-
                 res.json(dbProperties);
             });
     }
