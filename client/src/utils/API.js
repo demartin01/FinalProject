@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-  getProperties() {
-    return axios.get('/api/properties');
+  getZillowProperties(city, state) {
+    return axios.get(`/api/properties/${city}/${state}`);
    }
 }

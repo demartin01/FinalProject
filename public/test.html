@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+</head>
+
+<body>
+
+    <h1>Data from Database and Zillow API</h1>
+
+    <div id="zillowData"></div>
+
+    <script>
+
+        let dbData;
+        let dbData1;
+        let dbData2;
+        let dbData3;
+        let dbData4;
+        let dbData5;
+        let dbData6;
+
+        $.ajax({
+            url: "/api/properties/all",
+            method: "GET"
+        }).then(function (response) {
+
+            dbData = response[0].name;
+            dbData1 = dbData.replace(/(.*count>)|(<\/list.*)|(<region>)|(<\/[a-z]*>)|"<"/g, "");
+            dbData2 = dbData1.replace("<", "");
+            dbData3 = dbData2.replace(/zindex currency="USD"/g, "value");
+            dbData4 = dbData3.split("<").join(">");
+            dbData5 = dbData4.split(">");
+            dbData6 = [];
+
+            
+            for (let i = 0; i < dbData5.length; i++) {
+                var obj = { [dbData5[i]]: dbData5[(i+1)], [dbData5[(i+2)]]: dbData5[(i+3)], [dbData5[(i+4)]]: dbData5[(i+5)], [dbData5[(i+6)]]: dbData5[(i+7)], [dbData5[(i+8)]]: dbData5[(i+9)] }
+                i = i+9;
+                dbData6.push(obj);
+            }
+            console.log("dbData6: ", dbData6);
+            $("#zillowData").text(JSON.stringify(dbData6));
+        })
+
+
+
+    </script>
+</body>
+
+</html>

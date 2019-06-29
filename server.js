@@ -9,13 +9,15 @@ const mongoose = require("mongoose");
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-if (process.env.NODE_ENV === "production"){
-    app.use(express.static("client/build"));
-};
+// if (process.env.NODE_ENV === "production"){
+//     app.use(express.static("client/build"));
+// };
 
-app.use(routes);
+app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/homesdb", {useNewUrlParser: true});
+
+app.use(routes);
 
 app.listen(PORT, () => console.log(`now listening on http://localhost:${PORT}`))
 
