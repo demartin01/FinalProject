@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Button } from "react-bootstrap";
 import "./Navbar.css";
 import Login from "../Login";
 import Signup from "../Signup";

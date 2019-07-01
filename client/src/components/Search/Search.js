@@ -50,7 +50,6 @@ class Search extends Component {
   };
 
   render() {
-    {var zillowData;}
     return (
       <React.Fragment>
         {/* make jumbotron */}
