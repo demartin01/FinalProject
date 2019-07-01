@@ -9,9 +9,9 @@ const mongoose = require("mongoose");
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// if (process.env.NODE_ENV === "production"){
-//     app.use(express.static("client/build"));
-// };
+if (process.env.NODE_ENV === "production"){
+    app.use(express.static("client/build"));
+};
 
 app.use(express.static("public"));
 
