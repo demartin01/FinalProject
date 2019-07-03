@@ -15,7 +15,7 @@ const Home = () => (
 
     <div className="section white">
       <div className="container">
-        <p>Sign-in to create your personalized searches using Zillow.</p>
+        <p>Sign-in to create your personalized searches using active properties on Zillow.</p>
       </div>
     </div>
     <a href="/snow"><div className="bottom-image"></div></a>
