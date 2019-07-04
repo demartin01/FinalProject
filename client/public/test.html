@@ -27,7 +27,7 @@
         let dbData6;
 
         $.ajax({
-            url: "/api/properties/all",
+            url: "/api/properties/Durham/NC",
             method: "GET"
         }).then(function (response) {
 
@@ -45,8 +45,13 @@
                 i = i+9;
                 dbData6.push(obj);
             }
+            console.log("dbData1: ", dbData1);
+            console.log("dbData2: ", dbData2);
+            console.log("dbData3: ", dbData3);
+            console.log("dbData4: ", dbData4);
+            console.log("dbData5: ", dbData5);
             console.log("dbData6: ", dbData6);
-            $("#zillowData").text(JSON.stringify(dbData6));
+            $("#zillowData").text(JSON.stringify(dbData));
         })
 
 
