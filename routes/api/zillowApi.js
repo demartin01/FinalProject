@@ -21,10 +21,7 @@ router.get("/:city/:state", function (req, res) {
             dbData6.push(obj);
         }
         console.log("dbData6: ", dbData6);
-
-
         db.Property.create(dbData6);
-
         console.log(dbData6);
         res.json(dbData6)
     });
