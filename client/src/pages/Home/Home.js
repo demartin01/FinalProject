@@ -4,8 +4,16 @@ import "./Home.css";
 
 const Home = () => (
   <div className="homeDiv">
+
+    <div className= "logoHeader">
+
+
+    </div>
+
     <div className="container">
-      <h1 className="header">StayorGo</h1>
+   
+      {/* <h1 className="header">StayorGo</h1> */}
+
       <p>StayorGo is designed to help simply the decision making process. StayorGo is Moving app that helps make decisions as to whether or not you should move or stay. If you decide to move where does your money go farther. Nashville is booming if I sell my house and obtain cash equity. Where can I have an improved quality of living or should I just stay at my current home. 
 
         {/* <PropertyTable /> */}

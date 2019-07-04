@@ -76,3 +76,7 @@ h1 {
 .container {
   width: 90%;
 }
+
+.logoHeader{
+  background-image: url("/assets/images/logo.jpg")
+}
