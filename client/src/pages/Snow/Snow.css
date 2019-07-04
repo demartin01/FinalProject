@@ -1,6 +1,6 @@
 .snowDiv {
   padding: 10% 0 80% 0;
-  background-image: url("/public/assets/images/living1.jpg");
+  background-image: url("/assets/images/kitchen2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -24,4 +24,8 @@ p {
 h1 {
   font-family: cursive, sans-serif;
   text-shadow: 0px 0px 3px white;
+}
+
+.logoHeader{
+  background-image: url("/assets/images/logo.jpg")
 }
