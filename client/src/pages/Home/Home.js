@@ -6,10 +6,7 @@ const Home = () => (
   <div className="homeDiv">
 
     <div className= "logoHeader">
-
-      <img src= "/assets/images/logo.png"></img> 
-      <a href="/"></a>
-      
+      <img src= "/assets/images/logo.png" alt="StayOrGo"></img> 
     </div>
 
     {/* <a href="/"><div className="logo-header"></div></a> */}
