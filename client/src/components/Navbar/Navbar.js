@@ -8,15 +8,11 @@ const MainNavbar = () => (
 
   <Navbar variant="dark" className="fixed-top d-flex">
     <Navbar.Brand href="/" className="flex-shrink-0">StayOrGo</Navbar.Brand>
-      <Button variant="info" className="flex-shrink-0">Your Home/Condo</Button>
-      <Button variant="info" className="flex-shrink-0">Get More Info</Button>
+      <a href="/snapshot"> <Button variant="info" className="flex-shrink-0">Investment Snapshot</Button> </a>
+      <a href="/favorites"> <Button variant="info" className="flex-shrink-0">Favorites</Button> </a>
       <Login />
       <Signup />
-      {/* <Form inline> */}
-        {/* <FormControl type="text" placeholder="Search" className="mr-sm-2 flex-shrink-0" /> */}
-        
         <a href="/search"><Button variant="outline-info"  className="flex-shrink-0">Search</Button></a>
-      {/* </Form> */}
   </Navbar>
 
 )

@@ -1,7 +1,7 @@
 import React from "react";
-import "./Snow.css";
+import "./Favorites.css";
 
-const Snow = () => (
+const Favorites = () => (
   <div className="snowDiv">
       <div className="container">
         <h1 className="header">Your Favorites</h1>
@@ -11,4 +11,4 @@ const Snow = () => (
 
 )
 
-export default Snow;
+export default Favorites;

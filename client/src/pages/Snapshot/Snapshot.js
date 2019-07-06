@@ -1,7 +1,7 @@
 import React from "react";
-import "./Beach.css";
+import "./Snapshot.css";
 
-const Beach = () => (
+const Snapshot = () => (
   <div className="beachDiv">
     
       <div className="container">
@@ -12,4 +12,4 @@ const Beach = () => (
 
 )
 
-export default Beach;
+export default Snapshot;
