@@ -1,3 +1,4 @@
 module.exports = {
-    Property: require("./property")
+    Property: require("./property"),
+    User: require("./user")
 }
