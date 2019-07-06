@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-
+import API from "../../utils/API";
 
 class Signup extends React.Component {
   constructor(props, context) {
@@ -12,6 +12,8 @@ class Signup extends React.Component {
     this.state = {
       show: false,
       validated: false,
+      username: "",
+      email: "",
       password: "",
       confirm: ""
     };
@@ -25,23 +27,38 @@ class Signup extends React.Component {
     this.setState({ show: true });
   };
 
-  handlePassword(event) {
-    event.preventDefault();
-    this.setState({ password: this.val()})
-  };
-
-  handleConfirm(event) {
-    event.preventDefault();
-    this.setState({ confirm: this.val()})
-  };
+  handleInputChange = event => {
+      const { id, value } = event.target;
+      this.setState({ 
+        [id]:value
+      })
+  }
 
   handleValidation(event) {
 
-    const form = event.current.target;
-    if (form.checkValidity() === false) {
+    if(this.state.password !== this.state.confirm) {
       event.preventDefault();
-      event.stopPropagation();
+      return alert("password does not match!");
     };
+    
+    console.log({
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.password
+    });
+
+    API.handleCreateUser({
+      email: this.state.email,
+      username: this.state.username,
+      password: this.state.password
+    });
+
+    // const form = event.current.target;
+    // if (form.checkValidity() === false) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // };
+
     this.setState({validated: true})
   };
 
@@ -64,30 +81,45 @@ class Signup extends React.Component {
           <Modal.Body>
 
               <Form.Group controlId="formBasicEmail">
+                <Form.Label>Full name</Form.Label>
+                <Form.Control 
+                  required
+                  id="username"
+                  type="text" 
+                  placeholder="Full name"
+                  onChange={this.handleInputChange} 
+                />
+              </Form.Group>
+
+              <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control 
                   required
+                  id="email"
                   type="email" 
-                  placeholder="Enter email" />
+                  placeholder="Enter email"
+                  onChange={this.handleInputChange} 
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control 
                   required
-                  id="confirm"
+                  id="password"
                   type="password" 
                   placeholder="password" 
-                />
+                  onChange={this.handleInputChange}
+                  />
                 <Form.Label>Confirm</Form.Label>
                 <Form.Control 
                   required
                   id="confirm"
                   type="password" 
                   placeholder="Confirm" 
+                  onChange={this.handleInputChange}
                 />
               </Form.Group>
-                <Form.Control.Feedback>Password doesn't match.</Form.Control.Feedback>
 
           </Modal.Body>
           <Modal.Footer>
