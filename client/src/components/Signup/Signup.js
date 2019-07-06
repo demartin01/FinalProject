@@ -28,9 +28,9 @@ class Signup extends React.Component {
   };
 
   handleInputChange = event => {
-      const { id, value } = event.target;
+      const { name, value } = event.target;
       this.setState({ 
-        [id]:value
+        [name]:value
       })
   }
 
@@ -80,11 +80,11 @@ class Signup extends React.Component {
             >
           <Modal.Body>
 
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group controlId="formBasicName">
                 <Form.Label>Full name</Form.Label>
                 <Form.Control 
                   required
-                  id="username"
+                  name="username"
                   type="text" 
                   placeholder="Full name"
                   onChange={this.handleInputChange} 
@@ -95,7 +95,7 @@ class Signup extends React.Component {
                 <Form.Label>Email address</Form.Label>
                 <Form.Control 
                   required
-                  id="email"
+                  name="email"
                   type="email" 
                   placeholder="Enter email"
                   onChange={this.handleInputChange} 
@@ -106,7 +106,7 @@ class Signup extends React.Component {
                 <Form.Label>Password</Form.Label>
                 <Form.Control 
                   required
-                  id="password"
+                  name="password"
                   type="password" 
                   placeholder="password" 
                   onChange={this.handleInputChange}
@@ -114,7 +114,7 @@ class Signup extends React.Component {
                 <Form.Label>Confirm</Form.Label>
                 <Form.Control 
                   required
-                  id="confirm"
+                  name="confirm"
                   type="password" 
                   placeholder="Confirm" 
                   onChange={this.handleInputChange}

@@ -2,6 +2,7 @@ const db = require("../models");
 
 module.exports = {
     createUser: (req, res) => {
+        
         db
             .User
             .create(req.body)
